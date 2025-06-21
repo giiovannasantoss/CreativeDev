@@ -10,15 +10,14 @@ p{
 }
 
 body{
-    font-family: inter;
+    font-family: poppins, sans serif;
     color: #3A4453;
-    font-weight: 500;
-    font-size: 1.05rem
+    font-size: 1.05rem;
+    overflow-x: hidden;
 }
 
 h1{
     font-size: 2rem;
-    font-weight: bold;
     color: black;
     text-align: center;
 }
@@ -73,7 +72,6 @@ span{
         justify-content: space-between;
         background-color: #F7F5FF;
         padding: 180px 60px;
-        width: 100%;
     }
 
     #title-hero{
@@ -122,7 +120,7 @@ span{
     }
 
     #viewcontact:hover{
-        border-color: #394353;
+        border-color: gray -400;
     }
 
     .img-hero{
@@ -150,7 +148,6 @@ span{
         padding: 80px 60px;
         align-items: center;
         justify-content: space-evenly;
-        width: 100%;
     }
 
     #title-aboutme{
@@ -235,7 +232,6 @@ span{
 /* ESTILIZAÇÃO DA PROJECTS PAGE */
     .projects{
         padding: 80px 0px;
-        width: 100%;
     }
 
     .projects-content{
@@ -309,13 +305,22 @@ span{
         border-radius: 5px;
         background-color: #DBEAFE;
         color: #2D4DB5;
+        transition: 0.2s ease-in-out;
+    }
+
+    .lang-used :nth-child(n):hover{
+        scale: 115%;
     }
 
     .link-project{
         color: #326CEC;
         font-weight: bold;
         margin-top: 10px;
-        /* AJUSTAR MARGIN-BOTTOM */
+        transition: 0.2s ease-in-out;
+    }
+
+    .link-project:hover{
+        color: #0d3a9c;
     }
 
 
@@ -336,16 +341,17 @@ span{
 
     /* contact-informations */
     #title-info{
-        margin-bottom: 40px;
+        margin-bottom: 30px;
         color: white;
+        font-weight: 600;
     }
 
     .contact-informations{
         grid-area: informations;
         background: linear-gradient(135deg, #b164ff, #3e82f6);
-        border-bottom-left-radius: 20px;
-        border-top-left-radius: 20px;
-        padding: 50px;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+        padding: 40px;
         color: white;
     }
 
@@ -370,14 +376,13 @@ span{
     /* contact-inputs */
     .contact-inputs{
         grid-area: inputs;
-        padding: 50px;
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;
+        padding: 40px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
         background-color: white;
     }
 
     .form{
-        /* ALTERAR COR DA FONTE!!! */
         display: flex;
         flex-direction: column;
         gap: 25px;
@@ -389,15 +394,21 @@ span{
         gap: 10px;
     }
 
+    .label{
+        font-weight: 500;
+    }
+
     .input{
         border-radius: 8px;
         border: 1px solid #D2D5DA;
-        padding: 10px;
+        padding: 12px 15px;
         transition: 0.2s ease-in-out;
     }
 
     .input::placeholder{
-        color: #AAB0BA;
+        font-family: poppins, sans-serif;
+        color: #A0A7B3;
+        font-size: 1rem;
     }
 
     .input:hover{
@@ -408,11 +419,12 @@ span{
     .input:focus{
         cursor: text;
         scale: 103%;
+        outline: none;
+        border: 2px solid #3B81F5;
+        transition: 0s;
     }
-    /* MUDAR A COR DA BORDA QUANDO FOR SELECIONADO, COR: #3B81F5 */
 
     #msg{
-        font-family: inter;
         resize: vertical;
     }
 
@@ -427,10 +439,10 @@ span{
     #msg-button{
         background: linear-gradient(to right, #F16B79, #7269FA);
         color: white;
-        font-weight: bold;
+        font-weight: 500;
         border-radius: 7px;
         text-align: center;
-        padding-block: 15px;
+        padding: 13px 0px;
         transition: 0.3s ease-in-out;
     }
 
@@ -442,8 +454,7 @@ span{
     #obs{
         justify-self: center;
         text-align: center;
-        margin-top: 20px;
-        font-weight: 200;
+        margin-top: 15px;
         font-size: 0.9rem;
         width: 90%;
         color: #616773;
