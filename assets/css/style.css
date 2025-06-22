@@ -34,6 +34,10 @@ ul{
     list-style: none;
 }
 
+#logo{
+    width: 160px;
+}
+
 span{
     background: linear-gradient(to right, #F16B79, #7269FA);
     -webkit-background-clip: text;
@@ -48,11 +52,11 @@ span{
 /* HEADER */
     .header{
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        justify-content: space-between;
         position: fixed;
-        padding: 10px 60px;
-        width: 100%;
+        width: 87%;
+        padding: 10px 100px;
         background-color: white;
     }
 
@@ -62,7 +66,8 @@ span{
     }
 
     .navbar a{
-        color: #394353;
+        font-size: 1rem;
+        color: #3A4453;
     }
 
 /* ESTILIZAÇÃO DA HERO PAGE */
@@ -335,8 +340,10 @@ span{
         display: grid;
         grid-template-areas: 
         "informations inputs";
-        grid-template-columns: repeat(2, 400px);
+        grid-template-columns: repeat(2, 395px);
         justify-self: center;
+        box-shadow: 0px 5px 10px 0px rgba(210, 204, 204, 0.544);
+        border-radius: 10px;
     }
 
     /* contact-informations */
@@ -458,4 +465,50 @@ span{
         font-size: 0.9rem;
         width: 90%;
         color: #616773;
+    }
+
+/* ESTLIZAÇÃO DO FOOTER */
+    .footer{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        background-color: #111827;
+        color: #969DA9;
+        padding: 50px 125px;
+    }
+
+    .top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .social-midias{
+        display: flex;
+        gap: 20px;
+    }
+
+    .midia{
+        display: flex;
+        border-radius: 50%;
+        background-color: #1F2937;
+        transition: 0.2s ease-in-out;
+    }
+
+    .midia:hover{
+        background-color: #5a6370;
+    }
+
+    /* POSTERIORMENTE, ALTERAR ÍCONES PARA FICAREM PROPORCIONAIS */
+    .img-midia{
+        width: 20px;
+        height: 20px;
+        padding: 12px;
+    }
+
+    .bottom{
+        display: flex;
+        justify-content: center;
+        border-top: 1px solid #1D2735;
+        padding: 40px 0px 0px 0px;
     }
