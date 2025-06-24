@@ -58,6 +58,7 @@ span{
         width: 87%;
         padding: 10px 100px;
         background-color: white;
+        box-shadow: 0px 2px 10px rgba(210, 204, 204, 0.544);
     }
 
     .navbar ul{
@@ -70,13 +71,18 @@ span{
         color: #3A4453;
     }
 
+    #night-mode{
+        width: 25px;
+    }
+
+
 /* ESTILIZAÇÃO DA HERO PAGE */
     .hero{
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        gap: 22%;
         background-color: #F7F5FF;
-        padding: 180px 60px;
+        padding: 200px 100px;
     }
 
     #title-hero{
@@ -85,7 +91,7 @@ span{
         text-align: start;
     }
 
-    .hero-content p{
+    #text-hero{
         line-height: 30px;
         margin: 20px 0px 40px 0px;
     }
@@ -103,7 +109,7 @@ span{
     #viewprojects{
         background: linear-gradient(to right, #F16B79, #7269FA);
         color: white;
-        font-weight: bold;
+        font-weight: 500;
         padding: 15px 30px;
         border-radius: 8px;
         transition: transform 0.2s ease-in-out;
@@ -125,15 +131,11 @@ span{
     }
 
     #viewcontact:hover{
-        border-color: gray -400;
-    }
-
-    .img-hero{
-        margin-right: 400px;
+        border-color: rgb(78, 75, 75);
     }
 
     #icon{
-        width: 170px;
+        height: 270px;
         transition: transform 0.3s ease-in-out;
     }
 
@@ -178,19 +180,27 @@ span{
         flex-direction: column;
         gap: 20px;
         text-align: left;
-        width: 700px;
+        width: 745px;
         line-height: 25px;
         text-align: justify;
+    }
+
+    .text-bio{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
     }
 
     /* my experience */
     .experience{
         grid-area: experience;
+        margin-top: 30px;
     }
 
     .lang{
         display: flex;
         gap: 10px;
+        transition: 0.2s ease-in-out;
     }
 
     .lang li{
@@ -199,36 +209,47 @@ span{
         font-weight: bold;
     }
 
-    .lang :nth-child(1){
+    .lang li a{
+        color: inherit;
+    }
+
+    .lang li:nth-child(1){
         background-color: #F3E8FF;
         color: #742EAE;
     }
 
-    .lang :nth-child(2){
+    .lang li:nth-child(2){
         background-color: #DBEAFE;
         color: #2D4DB5;
     }
 
-    .lang :nth-child(3){
+    .lang li:nth-child(3){
         background-color: #FEF9C3;
         color: #854D0E;
     }
 
-    .lang :nth-child(4){
+    .lang li:nth-child(4){
         background-color: #DCFCE7;
         color: #166534;
     }
 
-    .lang :nth-child(5){
+    .lang li:nth-child(5){
         background-color: #FEE2E2;
         color: #9D2323;
     }
 
-    .lang :nth-child(6){
+    .lang li:nth-child(6){
         background-color: #E0E7FF;
         color: #3831A3;
     }
 
+    .lang li:nth-child(n){
+        transition: 0.2s ease-in-out;
+    }
+
+    .lang li:nth-child(n):hover{
+        scale: 110%;
+    }
 
 /* ESTILIZAÇÃO DA SKILLS PAGE */
     
@@ -306,7 +327,7 @@ span{
     .lang-used :nth-child(n){
         font-size: 0.8rem;
         font-weight: bold;
-        padding: 3px 10px;
+        padding: 3px 6px;
         border-radius: 5px;
         background-color: #DBEAFE;
         color: #2D4DB5;
