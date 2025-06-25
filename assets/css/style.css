@@ -252,8 +252,79 @@ span{
     }
 
 /* ESTILIZAÇÃO DA SKILLS PAGE */
-    
+    .skills{
+        background-color: #F7F5FF;
+        padding: 80px;
+    }
 
+    .column{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .skills-content{
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    #title-skills{
+        margin-bottom: 30px;
+    }
+
+    .skill h3{
+        font-weight: 600;
+    }
+
+    .skill p{
+        font-weight: 500;
+    }
+
+    .skill{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .bar{
+        background-color: #E9ECEF;
+        display: flex;
+        align-items: center;
+        width: 500px;
+        height: 10px;
+        border-radius: 20px;
+    }
+
+    .fill{
+        background: linear-gradient(to right, #F16B79, #7269FA);
+        height: 100%; 
+        border-radius: 20px;
+    }
+
+    .html .fill{
+        width: 90%;
+    }
+
+    .css .fill{
+        width: 85%;
+    }
+
+    .javascript .fill{
+        width: 75%;
+    }
+
+    .responsiveDesign .fill{
+        width: 95%;
+    }
+
+    .uiux .fill{
+        width: 80%;
+    }
+
+    .frameworks .fill{
+        width: 85%;
+    }
 
 /* ESTILIZAÇÃO DA PROJECTS PAGE */
     .projects{
