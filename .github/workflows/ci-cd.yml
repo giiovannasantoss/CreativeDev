@@ -1,0 +1,100 @@
+name: CI and deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  ci:
+    name: Validate site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Check page and local files
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          class Assets(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.paths = []
+
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+                  if tag == "img" and attrs.get("src"):
+                      self.paths.append(attrs["src"])
+                  if tag == "link" and attrs.get("href", "").endswith(".css"):
+                      self.paths.append(attrs["href"])
+
+          root = Path(".")
+          page = root / "index.html"
+          if not page.is_file():
+              raise SystemExit("ERRO: index.html não foi encontrado.")
+
+          parser = Assets()
+          parser.feed(page.read_text(encoding="utf-8"))
+          missing = [
+              path for path in parser.paths
+              if not path.startswith(("http://", "https://", "data:"))
+              and not (root / path.split("?", 1)[0].split("#", 1)[0]).is_file()
+          ]
+
+          if missing:
+              print("Arquivos locais não encontrados:")
+              print("\n".join(f"- {path}" for path in missing))
+              raise SystemExit(1)
+
+          print(f"OK: index.html e {len(parser.paths)} arquivos locais verificados.")
+          PY
+
+  deploy:
+    name: Deploy to GitHub Pages
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: ci
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepare site
+        run: |
+          mkdir -p _site/assets
+          cp index.html _site/
+          cp -R assets/. _site/assets/
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Publish site
+        id: deployment
+        uses: actions/deploy-pages@v4
